@@ -5,7 +5,10 @@ df = pd.read_excel(filepath, skiprows=26, skip_footer=58, index_col=False)
 # add in meta data required by OCDS
 meta = pd.read_excel(filepath, skiprows=0, skip_footer=173, index_col=False, encoding='iso8859_2')
 publishedDate = pd.Series(pd.to_datetime(meta.iat[5,6]))
-publisher = pd.Series(meta.iloc[9:17,8].str.encode(encoding="utf-8", errors="strict"))
+publisher =  = pd.Series({
+    'name':'Open Data Kosovo Foundation', 
+    'address': 'Bajram Kelmendi Street, Object KIG, Entry 1, Floor 4, Apt 16.',
+    'email': 'opencontracting@opendatakosovo.org'})
 releases = np.array(1.0) 
 uri = pd.Series(str(meta.iloc[17,8]))
 
